@@ -10,7 +10,7 @@ function Catalog() {
 
   return (
     <div className="catalog-container">
-      <h2>Каталог/Материалы</h2>
+      <h2 className='title'>Каталог/Материалы</h2>
 
       <div className="tabs">
         {tabs.map((tab) => (
