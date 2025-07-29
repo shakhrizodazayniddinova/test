@@ -1,18 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import ProductTable from "./ProductTable";
 import { useState } from 'react';
-import { categories, products, units } from '../data/products';
+import ProductTable from './ProductTable';
 
 function Catalog() {
   const [activeTab, setActiveTab] = useState("Товары");
 
   const tabs = ["Товары", "Категории", "Единицы измерения"];
-
-  let currentData = [];
-  if (activeTab === "Товары") currentData = products;
-  else if (activeTab === "Категории") currentData = categories;
-  else if (activeTab === "Единицы измерения") currentData = units;
 
   return (
     <div className="catalog-container">
@@ -33,10 +27,10 @@ function Catalog() {
       <div className="table-container">
         <div className="table-control">
           <button className="add-btn">
-            <FontAwesomeIcon icon={faPlus} className='plus-icon' />
+            <FontAwesomeIcon icon={faPlus} className='plus-icon' /> 
             Добавить
           </button>
-
+          
           <div className="filter-bar">
             <label className="filter-label">Фильтры</label>
             <input className="filter-input" type="text" placeholder="Название" />
@@ -44,7 +38,7 @@ function Catalog() {
           </div>
         </div>
 
-        <ProductTable data={currentData} type={activeTab} />
+        <ProductTable />
       </div>
     </div>
   );

@@ -1,62 +1,33 @@
-function ProductTable({ data, type }) {
+import React from "react";
+import products from "../data/products";
+
+function ProductTable() {
   return (
     <div className="table-scroll">
-      <table className="product-table">
+        <table className="product-table">
         <thead>
-          <tr>
-            {type === "Товары" && (
-              <>
-                <th>Название</th>
-                <th>Категория</th>
-                <th>Единица измерения</th>
-                <th>Базовая цена</th>
-                <th>Описание</th>
-                <th>Артикул GTIN</th>
-              </>
-            )}
-            {type === "Категории" && (
-              <>
-                <th>Название</th>
-                <th>Описание</th>
-              </>
-            )}
-            {type === "Единицы измерения" && (
-              <>
-                <th>Обозначение</th>
-                <th>Полное название</th>
-              </>
-            )}
-          </tr>
+            <tr>
+            <th>Название</th>
+            <th>Категория</th>
+            <th>Единица измерения</th>
+            <th>Базовая цена</th>
+            <th>Описание</th>
+            <th>Артикул GTIN</th>
+            </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+            {products.map((item, index) => (
             <tr key={index}>
-              {type === "Товары" && (
-                <>
-                  <td>{item.name}</td>
-                  <td>{item.category}</td>
-                  <td>{item.unit}</td>
-                  <td>{item.price}</td>
-                  <td>{item.description}</td>
-                  <td>{item.gtin}</td>
-                </>
-              )}
-              {type === "Категории" && (
-                <>
-                  <td>{item.name}</td>
-                  <td>{item.description}</td>
-                </>
-              )}
-              {type === "Единицы измерения" && (
-                <>
-                  <td>{item.name}</td>
-                  <td>{item.short}</td>
-                </>
-              )}
+                <td>{item.name}</td>
+                <td>{item.category}</td>
+                <td>{item.unit}</td>
+                <td>{item.price}</td>
+                <td>{item.description}</td>
+                <td>{item.gtin}</td>
             </tr>
-          ))}
+            ))}
         </tbody>
-      </table>
+        </table>
     </div>
   );
 }
